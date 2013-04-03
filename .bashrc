@@ -60,4 +60,6 @@ fi
 if [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
 fi
-alias homegit='git --git-dir=/home/ltjeg/.homegit/ --work-tree=/home/ltjeg'
+
+
+alias homegit='git --git-dir=$HOME/.homegit --work-tree=$HOME'
