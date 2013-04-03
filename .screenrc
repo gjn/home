@@ -1,0 +1,65 @@
+#status line(s)
+#hardstatus alwayslastline
+#hardstatus string '%{= kb}[ %=%{w}%?%-Lw%?%{b}(%{W}%n*%f %t%?(%u)%?%{b})%{w}%?%+Lw%?%?%= %{b}][%{B} %H %{W}%l %{b}][%{B} %d.%m.%Y %{W}%0c %{b}]'
+#hardstatus string '%{= kG}[%{G}%H%? %1`%?%{g}][%= %{= kw}%-w%{+b yk} %n*%t%?(%u)%? %{-}%+w %=%{g}][%{B}%m/%d %{W}%C%A%{g}]'
+caption always "%{= kB}[ %=%{w}%?%-Lw%?%{b}(%{W}%n*%f %t%?(%u)%?%{b})%{w}%?%+Lw%?%?%= %{B}][%{G} %H %{Y}%l %{B}][%{G} %d.%m.%Y %{Y}%0c %{B}]"
+#caption alwaysignore
+
+#scollback buffer
+defscrollback 10000
+
+defutf8 on
+
+autodetach on
+startup_message off
+shell -$SHELL
+shelltitle ""
+
+# 256 colors
+term screen-256color
+terminfo rxvt* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce on
+
+#default windows
+screen -t shell 1
+screen -t vim 2
+screen -t lfm 3 python /home/ltjeg/local/lib/python/lfm/lfm.py
+select 0
+# bind c screen 1 #window numbering starts at 1 not 0
+# bind 0 select 10
+bind j focus down
+bind k focus up
+
+# get rid of silly xoff stuff
+# bind s split
+
+# layouts
+layout autosave on
+layout new full
+select 2
+layout new split
+select 2
+split
+focus down
+select 1
+resize 15
+focus up
+
+layout attach split
+layout select split
+
+# switch layouts with 'l' key
+bind S layout prev
+
+# [space] puts Screen into resize mode. Resize regions using hjkl keys.
+bindkey "^ " eval "command -c rsz" # enter resize mode
+
+# use hjkl keys to resize regions
+bind -c rsz h eval "resize -h -1" "command -c rsz"
+bind -c rsz j eval "resize -v -1" "command -c rsz"
+bind -c rsz k eval "resize -v +1" "command -c rsz"
+bind -c rsz l eval "resize -h +1" "command -c rsz"
+
+vbell off
+
+bind R eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
