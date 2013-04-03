@@ -38,7 +38,7 @@ autocmd BufWritePost *.js silent :make | :cope | :execute "normal \<C-L>"
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-let g:pydiction_location = '/home/ltjeg/.vim/pydiction-1.2/complete-dict'
+let g:pydiction_location = '~/.vim/pydiction-1.2/complete-dict'
 
 "autostart
 "autocmd VimEnter * NERDTree | wincmd p
