@@ -1,5 +1,5 @@
 syntax on
-
+set bs=2
 set background=dark
 set number
 "tabs as x spaces and smart indent
