@@ -17,12 +17,14 @@ set incsearch
 set showmatch
 set mat=2
 
-"grep name under cursor
-nnoremap <silent> <F7> :Rgrep<CR>
 "toggle nerdtree
 nmap <F5> :NERDTreeToggle<CR>
 "toggle line numbers
 nmap <F6> :set invnumber<CR>
+"grep name under cursor
+nnoremap <silent> <F7> :Rgrep<CR>
+"toogle nopaste
+set pastetoggle=<F8>
 "jslint stuff
 nmap <F12> :w<CR>:make<CR>:cope<CR>
 
@@ -61,3 +63,10 @@ let g:ctrlp_max_files = 0
 "set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*build/*,*buildout/*
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
+"adjust size of quickfix window based on content. [2-10]
+au FileType qf call AdjustWindowHeight(2, 10)
+function! AdjustWindowHeight(minheight, maxheight)
+  exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
+endfunction
+
