@@ -1,7 +1,8 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
-export LESS='-q'
+export LESS='-erX'
 export EDITOR=vim
+export PGUSER=www-data
 
 # You may uncomment the following lines if you want `ls' to be colorized:
 export LS_OPTIONS='--color=auto'

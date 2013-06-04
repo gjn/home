@@ -1,5 +1,5 @@
 "if you want to use jshint
-setlocal makeprg=jshint\ %
+setlocal makeprg=./buildout/node_modules/jshint/bin/jshint\ %
 
 "node-jshint
 setlocal errorformat=%f:\ line\ %l\\,\ col\ %c\\,\ %m

@@ -1,3 +1,5 @@
+let mapleader=","
+
 syntax on
 set bs=2
 set background=dark
@@ -8,10 +10,14 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set smarttab
+set textwidth=82
 
 "searching
 set hlsearch
 set incsearch
+
+"show commands
+set showcmd
 
 "brackets
 set showmatch
@@ -70,3 +76,5 @@ function! AdjustWindowHeight(minheight, maxheight)
   exe max([min([line("$"), a:maxheight]), a:minheight]) . "wincmd _"
 endfunction
 
+" Some macros
+au FileType javascript inoremap <buffer> <Leader>f, function()<Space>{<CR>},<Esc>k$F(a
