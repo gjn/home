@@ -57,6 +57,10 @@ if [ -d ~/local/lib/python/lfm ] ; then
     PATH=~/local/lib/python/lfm:"$PATH"
 fi
 
+if [ -d ~/.gem/ruby/1.8/bin ] ; then
+    PATH=~/.gem/ruby/1.8/bin:"$PATH"
+fi
+
 
 if [ -f /etc/bash_completion ]; then
   . /etc/bash_completion

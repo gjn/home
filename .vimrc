@@ -6,8 +6,8 @@ set background=dark
 set number
 "tabs as x spaces and smart indent
 set smartindent
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set smarttab
 set textwidth=82
@@ -40,7 +40,7 @@ map Q <Nop>
 filetype plugin on
 
 "auto jslint on write
-autocmd BufWritePost *.js silent :make | :cope | :execute "normal \<C-L>"
+"autocmd BufWritePost *.js silent :make | :cope | :execute "normal \<C-L>"
 
 "autocomplete stuff Ctrl-x Ctrl-o
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -52,10 +52,11 @@ let g:pydiction_location = '~/.vim/pydiction-1.2/complete-dict'
 "autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * NERDTreeMirror
 let g:NERDTreeDirArrows=0
+let g:NERDTreeShowHidden=1
 
 "grep configurations
-let Grep_Default_Filelist = '*.js *.js.in *py *py.in *.css *.html *.html.in'
-let Grep_Skip_Dirs = '.svn .git buildout build' 
+let Grep_Default_Filelist = '*.js *.js.in *py *py.in *.css *.html *.html.in *.less'
+let Grep_Skip_Dirs = '.svn .git buildout build .build-artefacts angular expect-0.2.0 sinon-1.7.3 node_modules prod lib' 
 let Grep_Skip_Files = '*.swp'
 
 

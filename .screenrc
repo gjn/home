@@ -49,7 +49,7 @@ layout attach split
 layout select split
 
 # switch layouts with 'l' key
-bind S layout prev
+bind l layout prev
 
 # r puts Screen into resize mode. Resize regions using hjkl keys.
 bind r eval "command -c rsz" # enter resize mode
