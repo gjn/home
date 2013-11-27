@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 let mapleader=","
 
 syntax on
@@ -79,3 +81,6 @@ endfunction
 
 " Some macros
 au FileType javascript inoremap <buffer> <Leader>f, function()<Space>{<CR>},<Esc>k$F(a
+
+" Make sure QuickFix window is opened after grep command
+autocmd QuickFixCmdPost *grep* cwindow
