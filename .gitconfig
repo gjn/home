@@ -1,0 +1,8 @@
+[user]
+	name = Gilbert Jeiziner
+	email = gjn@space.ch
+[color]
+	ui = true
+[core]
+  sharedRepository = true
+
