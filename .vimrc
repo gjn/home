@@ -61,6 +61,8 @@ let Grep_Default_Filelist = '*.js *.js.in *py *py.in *.css *.html *.html.in *.le
 let Grep_Skip_Dirs = '.svn .git buildout build .build-artefacts angular expect-0.2.0 sinon-1.7.3 node_modules prod lib' 
 let Grep_Skip_Files = '*.swp'
 
+"syntax
+au BufNewFile,BufRead *.less set filetype=less
 
 "ctrlp search files to open
 set runtimepath^=~/.vim/bundle/ctrlp.vim

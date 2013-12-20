@@ -24,6 +24,9 @@ alias gitsvn='git svn'
 if [ `id -u` -eq 0 ]; then
   export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/bin/X11:/usr/games:~/local/lib/python:~/local/lib/python/lfm"
 fi
+
+PATH=/usr/lib/jvm/java-7-openjdk-amd64/jre/bin/:"$PATH"
+
 # set PATH so it includes user's private bin if it exists
 if [ -d ~/local/bin ] ; then
     PATH=~/local/bin:"$PATH"
@@ -68,3 +71,5 @@ fi
 
 
 alias homegit='git --git-dir=$HOME/.homegit --work-tree=$HOME'
+alias apache2ctl='/usr/sbin/apache2ctl'
+
