@@ -57,8 +57,8 @@ let g:NERDTreeDirArrows=0
 let g:NERDTreeShowHidden=1
 
 "grep configurations
-let Grep_Default_Filelist = '*.js *.js.in *py *py.in *.css *.html *.html.in *.less'
-let Grep_Skip_Dirs = '.svn .git buildout build .build-artefacts angular expect-0.2.0 sinon-1.7.3 node_modules prod lib' 
+let Grep_Default_Filelist = '*.js *.js.in *py *py.in *.css *.html *.html.in *.less *.mako *.mako*'
+let Grep_Skip_Dirs = '.svn .git buildout build .build-artefacts angular expect-0.2.0 sinon-1.7.3 node_modules prd' 
 let Grep_Skip_Files = '*.swp'
 
 "syntax
@@ -86,3 +86,16 @@ au FileType javascript inoremap <buffer> <Leader>f, function()<Space>{<CR>},<Esc
 
 " Make sure QuickFix window is opened after grep command
 autocmd QuickFixCmdPost *grep* cwindow
+
+func GitGrep(...)
+  let save = &grepprg
+  set grepprg=git\ grep\ -n\ $*
+  let s = 'grep'
+  for i in a:000
+    let s = s . ' ' . i
+  endfor
+  exe s
+  let &grepprg = save
+endfun
+command -nargs=? G call GitGrep(<f-args>)
+

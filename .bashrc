@@ -72,4 +72,5 @@ fi
 
 alias homegit='git --git-dir=$HOME/.homegit --work-tree=$HOME'
 alias apache2ctl='/usr/sbin/apache2ctl'
-
+alias apa='sudo apache2ctl graceful'
+alias chb='buildout/bin/buildout -c buildout_ltjeg.cfg; apa'
