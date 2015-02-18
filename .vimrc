@@ -50,6 +50,10 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 let g:pydiction_location = '~/.vim/pydiction-1.2/complete-dict'
 
+" formattting javascript
+let g:formatprg_javascript = "/home/ltjeg/python-env/bin/js-beautify"
+let g:formatprg_args_javascript = "-i -s 2"
+
 "autostart
 "autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * NERDTreeMirror

@@ -1,2 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =0
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/ltjeg/priv/homefield/data'
+let g:netrw_dirhist_2='/home/ltjeg/priv/homefield'
+let g:netrw_dirhist_3='/home/ltjeg/mf-chsdi3/chsdi/tests/integration'
+let g:netrw_dirhist_4='/home/ltjeg/mf-chsdi3/chsdi/tests/integration/sitemaps'
+let g:netrw_dirhist_5='/home/ltjeg/mf-chsdi3/chsdi/tests/integration'

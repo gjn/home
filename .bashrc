@@ -74,3 +74,18 @@ alias homegit='git --git-dir=$HOME/.homegit --work-tree=$HOME'
 alias apache2ctl='/usr/sbin/apache2ctl'
 alias apa='sudo apache2ctl graceful'
 alias chb='buildout/bin/buildout -c buildout_ltjeg.cfg; apa'
+alias nose='buildout/bin/nosetests -e test_external_links'
+alias vimenc='vim -c '\''let $enc = &fileencoding | execute "!echo Encoding:  $enc" | q'\''' 
+
+
+source ~/.browserstack
+
+# Predictable SSH authentication socket location
+MY_SOCK="/tmp/ssh-agent-$USER-screen"
+if test $SSH_AUTH_SOCK && [ $SSH_AUTH_SOCK != $MY_SOCK ]
+then
+    rm -f /tmp/ssh-agent-$USER-screen
+    ln -sf $SSH_AUTH_SOCK $MY_SOCK
+    export SSH_AUTH_SOCK=$MY_SOCK
+fi
+
