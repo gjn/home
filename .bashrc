@@ -96,8 +96,13 @@ alias homegit='git --git-dir=$HOME/.homegit --work-tree=$HOME'
 alias apache2ctl='/usr/sbin/apache2ctl'
 alias apa='sudo apache2ctl graceful'
 alias chb='buildout/bin/buildout -c buildout_ltjeg.cfg; apa'
-alias nose='buildout/bin/nosetests -e test_external_links'
-alias vimenc='vim -c '\''let $enc = &fileencoding | execute "!echo Encoding:  $enc" | q'\''' 
+alias nose='buildout/bin/nosetests -I test_links.py -I test_wmtscapabilities_auth.py -I test_wmtsgettile.py -I test_varnish.py -I test_file_storage.py'
+alias vimenc='vim -c '\''let $enc = &fileencoding | execute "!echo Encoding:  $enc" | q'\'''
+alias wintersmith='~/node_modules/wintersmith/bin/wintersmith'
+alias ch='cd ~/mf-chsdi3'
+alias ga='cd ~/mf-geoadmin3'
+alias 3d='cd ~/3d-forge'
+alias ff='cd ~/ffive'
 
 
 source ~/.browserstack
