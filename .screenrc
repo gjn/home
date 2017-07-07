@@ -15,11 +15,6 @@ startup_message off
 shell -$SHELL
 shelltitle ""
 
-# 256 colors
-term screen-256color
-terminfo rxvt* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-defbce on
-
 #default windows
 screen -t shell 1
 screen -t vim 2
@@ -28,6 +23,11 @@ select 0
 # bind 0 select 10
 bind j focus down
 bind k focus up
+
+# 256 colors
+term screen-256color
+terminfo rxvt* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce on
 
 # get rid of silly xoff stuff
 # bind s split

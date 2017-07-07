@@ -27,6 +27,7 @@ set mat=2
 
 "toggle nerdtree
 nmap <F5> :NERDTreeToggle<CR>
+nmap <F9> :NERDTreeToggle<CR>
 "toggle line numbers
 nmap <F6> :set invnumber<CR>
 "grep name under cursor
@@ -63,7 +64,7 @@ let g:NERDTreeShowHidden=1
 "grep configurations
 let Grep_Default_Filelist = '*.js *.js.in *py *py.in *.css *.html *.html.in *.less *.mako *.mako*'
 let Grep_Skip_Dirs = '.svn .git buildout build .build-artefacts angular expect-0.2.0 sinon-1.7.3 node_modules prd' 
-let Grep_Skip_Files = '*.swp'
+let Grep_Skip_Files = '*.swp *.min.js'
 
 "syntax
 au BufNewFile,BufRead *.less set filetype=less

@@ -6,6 +6,12 @@ case $- in
       *) return;;
 esac
 
+## When in screen session, use window specific history
+if test $WINDOW
+then
+  HISTFILE=~/.bash_history.${WINDOW}
+fi
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -14,8 +20,11 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=100000
+HISTFILESIZE=200000
+
+# Assure we write to history file immediately
+export PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -44,11 +53,18 @@ alias grepsvn='grep -rIl --exclude-dir=.svn'
 alias gitsvn='git svn'
 
 if [ `id -u` -eq 0 ]; then
-  export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/bin/X11:/usr/games:~/local/lib/python:~/local/lib/python/lfm"
+#  export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/bin/X11:/usr/games:~/local/lib/python:~/local/lib/python/lfm"
+  export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/bin/X11:/usr/games:~/local/lib/python/lfm"
 fi
 
-PATH=/usr/lib/jvm/java-7-openjdk-amd64/jre/bin/:"$PATH"
+# export PYTHONPATH="/home/ltjeg/local/lib/python/"
 
+PATH=/usr/lib/jvm/java-7-openjdk-amd64/jre/bin/:"$PATH"
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/priv/ncurses-6.0/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/local/lib
+
+PATH=~/priv/ncurses-6.0/lib:"$PATH"
 # set PATH so it includes user's private bin if it exists
 if [ -d ~/local/bin ] ; then
     PATH=~/local/bin:"$PATH"
@@ -95,8 +111,9 @@ fi
 alias homegit='git --git-dir=$HOME/.homegit --work-tree=$HOME'
 alias apache2ctl='/usr/sbin/apache2ctl'
 alias apa='sudo apache2ctl graceful'
-alias chb='buildout/bin/buildout -c buildout_ltjeg.cfg; apa'
-alias nose='buildout/bin/nosetests -I test_links.py -I test_wmtscapabilities_auth.py -I test_wmtsgettile.py -I test_varnish.py -I test_file_storage.py'
+alias chb='make user; apa'
+alias nose='.venv/bin/nosetests -I test_links.py -I test_wmtscapabilities_auth.py -I test_wmtsgettile.py -I test_varnish.py -I test_file_storage.py'
+alias gab='make user'
 alias vimenc='vim -c '\''let $enc = &fileencoding | execute "!echo Encoding:  $enc" | q'\'''
 alias wintersmith='~/node_modules/wintersmith/bin/wintersmith'
 alias ch='cd ~/mf-chsdi3'
