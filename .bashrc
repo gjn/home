@@ -122,8 +122,6 @@ alias 3d='cd ~/3d-forge'
 alias ff='cd ~/ffive'
 
 
-source ~/.browserstack
-
 # Predictable SSH authentication socket location
 MY_SOCK="/tmp/ssh-agent-$USER-screen"
 if test $SSH_AUTH_SOCK && [ $SSH_AUTH_SOCK != $MY_SOCK ]
