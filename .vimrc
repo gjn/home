@@ -101,5 +101,5 @@ func GitGrep(...)
   exe s
   let &grepprg = save
 endfun
-command -nargs=? G call GitGrep(<f-args>)
+command -nargs=? GGrep call GitGrep(<f-args>)
 
