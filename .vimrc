@@ -35,6 +35,8 @@ nnoremap <silent> <F7> :Rgrep<CR>
 set pastetoggle=<F8>
 "jslint stuff
 nmap <F12> :w<CR>:make<CR>:cope<CR>
+"bind ESC to jk
+inoremap jk <Esc>
 
 "disable ex mode
 map Q <Nop>
