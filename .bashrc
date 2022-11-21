@@ -43,11 +43,15 @@ export HISTCONTROL=ignoredups
 eval `dircolors`
 alias ls='ls $LS_OPTIONS'
 alias l='ls $LS_OPTIONS -Fahl'
+alias ltra='ls -ltra'
 
 # Some more alias to avoid making mistakes:
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+
+# Add new git log format
+alias gitlog="git log --graph --all --pretty='format:%C(auto)%h %C(cyan)%ar %C(auto)%d %C(magenta)%an %C(auto)%s'"
 
 bind 'TAB: complete'
 
