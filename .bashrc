@@ -176,6 +176,11 @@ fi
 
 # export PYTHONPATH="/home/ltjeg/local/lib/python/"
 
+# python on Git Bash Systems (on BURAUT machine)
+if [[ $HOSTNAME == "CP001969" ]]; then
+  alias python="/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio/Shared/Python37_64/python.exe"
+fi
+
 PATH=/usr/lib/jvm/java-7-openjdk-amd64/jre/bin/:"$PATH"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/priv/ncurses-6.0/lib

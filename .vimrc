@@ -24,15 +24,18 @@ set showcmd
 set showmatch
 set mat=2
 
+"Key mappings
+"================================================
 "toggle nerdtree
 nmap <F5> :NERDTreeToggle<CR>
-nmap <F9> :NERDTreeToggle<CR>
 "toggle line numbers
 nmap <F6> :set invnumber<CR>
 "grep name under cursor
 nnoremap <silent> <F7> :Rgrep<CR>
 "toogle nopaste
 set pastetoggle=<F8>
+"undo tree toggle
+nnoremap <F9> :GundoToggle<CR>
 "jslint stuff
 nmap <F12> :w<CR>:make<CR>:cope<CR>
 "bind ESC to jk
@@ -42,6 +45,9 @@ inoremap jk <Esc>
 map Q <Nop>
 
 filetype plugin on
+
+"Use gundo with python 3
+let g:gundo_prefer_python3 = 1
 
 "auto jslint on write
 "autocmd BufWritePost *.js silent :make | :cope | :execute "normal \<C-L>"
