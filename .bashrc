@@ -186,6 +186,8 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/priv/ncurses-6.0/lib
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/local/lib
 
+export NODE_OPTIONS="--dns-result-order=ipv4first"
+
 PATH=~/priv/ncurses-6.0/lib:"$PATH"
 # set PATH so it includes user's private bin if it exists
 if [ -d ~/local/bin ] ; then
@@ -242,7 +244,9 @@ alias ch='cd ~/mf-chsdi3'
 alias ga='cd ~/mf-geoadmin3'
 alias 3d='cd ~/3d-forge'
 alias ff='cd ~/ffive'
-
+#alias npm="node --dns-result-order=ipv4first $(which npm)"
+alias npm="npm"
+alias node="node"
 
 # Predictable SSH authentication socket location
 MY_SOCK="/tmp/ssh-agent-$USER-screen"
