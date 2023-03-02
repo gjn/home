@@ -6,6 +6,8 @@ Plug 'brooth/far.vim'
 Plug 'preservim/nerdtree'
 call plug#end()
 
+autocmd BufNewFile,BufRead /dev/shm/gopass* setlocal noswapfile nobackup noundofile shada=""
+
 tnoremap <Esc> <C-\><C-n>
 
 let mapleader=","
