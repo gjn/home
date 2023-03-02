@@ -1,18 +1,19 @@
 # Ignore everything
 *
+shared-drives/*
 
 # But not these files...
 !.gitignore
 !.config/nvim/init.vim
 !.jshintrc
 !.screenrc
+!*.vim
 
 !script.pl
 !template.latex
 # etc...
-
-# ...even if they are in subdirectories
-!*/
+#
+#!*/
 
 # if the files to be tracked are in subdirectories
 !*/.vim/*
