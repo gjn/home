@@ -4,10 +4,11 @@ shared-drives/*
 
 # But not these files...
 !.gitignore
-!.config/nvim/init.vim
+!*init.vim
 !.jshintrc
 !.screenrc
 !*.vim
+!*dracula*.ini
 
 !script.pl
 !template.latex
@@ -18,4 +19,5 @@ shared-drives/*
 # if the files to be tracked are in subdirectories
 !*/.vim/*
 !*/.local/share/nvim/*
+!*/.local/share/mc/*
 
