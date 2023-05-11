@@ -18,6 +18,7 @@ shared-drives/*
 
 # if the files to be tracked are in subdirectories
 !*/.vim/*
+!*/.playbooks/*
 !*/.local/share/nvim/*
 !*/.local/share/mc/*
 

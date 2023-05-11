@@ -1,0 +1,17 @@
+- name: Checkout Git repository
+  hosts: localhost
+  tasks:
+    - name: Clone repository
+      git:
+        repo: https://github.com/gjn/home
+        dest: ~/hometmp
+
+- name: Copy files recursively from one directory to another (preserve ownership and permissions)
+  hosts: localhost
+  vars:
+    source_dir: ~/hometmp/
+    dest_dir: ~/
+  tasks:
+    - name: Move contents of directory
+      command: rsync -r {{ source_dir }} {{ dest_dir }}
+
