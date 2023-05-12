@@ -1,0 +1,22 @@
+- name: Install some stuff
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Install neovim package
+      ansible.builtin.apt:
+        name: neovim
+        state: latest
+
+    - name: Install the nvim plugins
+      command: nvim "+silent! PlugUpdate!" +qall!
+
+    - name: Install midnight commander
+      ansible.builtin.apt:
+        name: mc
+        state: latest
+
+    - name: Install quake terminal
+      ansible.builtin.apt:
+        name: guake
+        state: latest
+

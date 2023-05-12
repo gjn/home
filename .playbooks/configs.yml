@@ -1,0 +1,7 @@
+- name: Handle different configurations, usually after install. But pay attention, can overwrite existing configs!
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Apply dconf file (GLOBAL)
+      command: dconf load / < ./files/dconf_full_dump.conf
+
