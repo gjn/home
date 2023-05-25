@@ -1,0 +1,34 @@
+- name: Installing Beekeeper Studio
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Install dependencies
+      ansible.builtin.apt:
+        pkg:
+          - gnupg
+          - software-properties-common
+          - curl
+          - git
+          - dirmngr
+          - apt-transport-https
+          - rng-tools
+        state: latest
+
+#    - name: Install Keyring for Hashicorp
+#      command: curl -fSsL https://deb.beekeeperstudio.io/beekeeper.key | sudo gpg --dearmor | sudo tee /usr/share/keyrings/beekeeper.gpg > /dev/null
+
+    - name: Add beekeeper repository to list
+      ansible.builtin.copy:
+        dest: /etc/apt/sources.list.d/beekeeper-studio-app.list
+        content: deb [signed-by=/usr/share/keyrings/beekeeper.gpg] https://deb.beekeeperstudio.io stable main
+        mode: "0644"
+
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Install beekeeper studio
+      ansible.builtin.apt:
+        name: beekeeper-studio
+        state: latest
+
