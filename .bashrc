@@ -32,6 +32,7 @@ export PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+export AWS_TIMEOUT_SECONDS=3600
 
 export LESS='-erX'
 export EDITOR=vim
@@ -49,6 +50,11 @@ alias ltra='ls -ltra'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+
+alias tf='terraform'
+alias tfi='terraform init'
+alias tfp='terraform plan'
+alias tfa='terraform apply'
 
 # Add new git log format
 alias gitlog="git log --graph --all --pretty='format:%C(auto)%h %C(cyan)%ar %C(auto)%d %C(magenta)%an %C(auto)%s'"
