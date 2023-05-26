@@ -30,13 +30,7 @@
     - name: Add gopass repository to list of repositories
       ansible.builtin.copy:
         dest: /etc/apt/sources.list.d/gopass.source
-        content: |
-          Types: deb
-          URIs: https://packages.gopass.pw/repos/gopass
-          Suites: stable
-          Architectures: all amd64 arm64 armhf
-          Components: main
-          Signed-By: /usr/share/keyrings/gopass-archive-keyring.gpg
+        content: deb [signed-by=/usr/share/keyrings/gopass-archive-keyring.gpg] https://packages.gopass.pw/repos/gopass stable main
         mode: "0644"
 
     - name: Update apt cache
