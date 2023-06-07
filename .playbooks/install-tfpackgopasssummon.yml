@@ -51,7 +51,7 @@
       ansible.builtin.apt:
         pkg:
           - gopass
-#          - gopass-archive-keyring
+          - gopass-archive-keyring
         state: latest
 
     - name: install summon
