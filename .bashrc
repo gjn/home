@@ -276,3 +276,5 @@ _gopass_bash_autocomplete() {
 
 complete -F _gopass_bash_autocomplete gopass
 
+set -o vi
+
