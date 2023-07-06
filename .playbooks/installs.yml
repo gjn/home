@@ -25,3 +25,8 @@
         name: guake
         state: latest
 
+    - name: Install samba server
+      ansible.builtin.apt:
+        name: samba
+        state: latest
+
