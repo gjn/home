@@ -1,0 +1,13 @@
+- name: Installing Azure Data Studio and Remmina
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Install Remmina
+      ansible.builtin.apt:
+        name: remmina
+        state: latest
+
+    - name: Install Azure Data Studio
+      ansible.builtin.apt:
+        deb: https://sqlopsbuilds.azureedge.net/stable/8f53a316fa00a98264f1ab119641cd540b5af25c/azuredatastudio-linux-1.44.1.deb
+

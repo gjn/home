@@ -1,4 +1,4 @@
-- name: Installing Terraform, Packer, gopass, summon and gopass-summon provider
+- name: Installing Terraform, Packer, gopass, summonand omniverse
   hosts: localhost
   become: yes
   tasks:
@@ -29,7 +29,7 @@
 
     - name: Add gopass repository to list of repositories
       ansible.builtin.copy:
-        dest: /etc/apt/sources.list.d/gopass.source
+        dest: /etc/apt/sources.list.d/gopass.list
         content: deb [signed-by=/usr/share/keyrings/gopass-archive-keyring.gpg] https://packages.gopass.pw/repos/gopass stable main
         mode: "0644"
 
@@ -51,13 +51,16 @@
       ansible.builtin.apt:
         pkg:
           - gopass
-          - gopass-archive-keyring
         state: latest
 
     - name: install summon
       ansible.builtin.apt:
         deb: https://github.com/cyberark/summon/releases/download/v0.9.5/summon_0.9.5_amd64.deb
 
-
-      
+    - name: Extract omniverse tar.gz file
+      ansible.builtin.unarchive:
+        src: "https://github.com/unprofession-al/omniverse/releases/download/v0.0.12/omniverse_0.0.12_Linux_x86_64.tar.gz"
+        dest: "/usr/local/bin/"
+        remote_src: true
+  
 
