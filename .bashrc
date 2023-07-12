@@ -55,6 +55,8 @@ alias tf='terraform'
 alias tfi='terraform init'
 alias tfp='terraform plan'
 alias tfa='terraform apply'
+alias stfp='summon -p /usr/bin/gopass terraform plan'
+alias stfa='summon -p /usr/bin/gopass terraform apply'
 
 # Add new git log format
 alias gitlog="git log --graph --all --pretty='format:%C(auto)%h %C(cyan)%ar %C(auto)%d %C(magenta)%an %C(auto)%s'"
