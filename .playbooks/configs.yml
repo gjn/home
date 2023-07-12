@@ -3,5 +3,5 @@
   become: yes
   tasks:
     - name: Apply dconf file (GLOBAL)
-      command: dconf load / < ./files/dconf_full_dump.conf
+      command: dconf load / < files/dconf_full_dump.conf
 
