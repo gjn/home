@@ -1,7 +1,4 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-
-bind 'TAB: complete'
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -32,11 +29,18 @@ export PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
 export AWS_TIMEOUT_SECONDS=3600
 
 export LESS='-erX'
 export EDITOR=vim
-export PGUSER=www-data
 
 # You may uncomment the following lines if you want `ls' to be colorized:
 export LS_OPTIONS='--color=auto'
