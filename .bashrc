@@ -206,6 +206,10 @@ if [ -d ~/local/bin ] ; then
     PATH=~/local/bin:"$PATH"
 fi
 
+if [ -d ~/.local/bin ] ; then
+    PATH=~/.local/bin:"$PATH"
+fi
+
 if [ -d ~/local/lib ] ; then
     PATH=~/local/lib:"$PATH"
 fi
