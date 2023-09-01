@@ -46,9 +46,9 @@ export EDITOR=vim
 export LS_OPTIONS='--color=auto'
 export HISTCONTROL=ignoredups
 eval `dircolors`
+alias l='ls $LS_OPTIONS -lhtra'
 alias ls='ls $LS_OPTIONS'
-alias l='ls $LS_OPTIONS -Fahl'
-alias ltra='ls -ltra'
+alias lsa='ls $LS_OPTIONS -Fahl'
 
 # Some more alias to avoid making mistakes:
 alias rm='rm -i'
