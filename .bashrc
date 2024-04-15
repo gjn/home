@@ -49,6 +49,13 @@ eval `dircolors`
 alias l='ls $LS_OPTIONS -lhtra'
 alias ls='ls $LS_OPTIONS'
 alias lsa='ls $LS_OPTIONS -Fahl'
+alias cd.='cd ..'
+alias cd..='cd ../..'
+alias cd...='cd ../../..'
+alias cd....='cd ../../../..'
+alias cd.....='cd ../../../../..'
+alias cd......='cd ../../../../../..'
+alias cd.......='cd ../../../../../../..'
 
 # Some more alias to avoid making mistakes:
 alias rm='rm -i'
@@ -256,10 +263,10 @@ alias nose='.venv/bin/nosetests -I test_links.py -I test_wmtscapabilities_auth.p
 alias gab='make user'
 alias vimenc='vim -c '\''let $enc = &fileencoding | execute "!echo Encoding:  $enc" | q'\'''
 alias wintersmith='~/node_modules/wintersmith/bin/wintersmith'
-alias ch='cd ~/mf-chsdi3'
-alias ga='cd ~/mf-geoadmin3'
-alias 3d='cd ~/3d-forge'
-alias ff='cd ~/ffive'
+alias cddev='cd ~/code/infra-terraform-swipos-dev'
+alias cdprod='cd ~/code/infra-terraform-swipos'
+alias cdpackdev='cd ~/code/infra-packer-swipos-dev'
+alias cdpackprod='cd ~/code/infra-packer-swipos'
 #alias npm="node --dns-result-order=ipv4first $(which npm)"
 alias npm="npm"
 alias node="node"

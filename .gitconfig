@@ -7,6 +7,7 @@
   sharedRepository = true
 
 	fscache = false
+	editor = vim +'set tw=72' +'set cc=72'
 [alias]
 	lgb = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
 [credential]
