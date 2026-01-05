@@ -1,9 +1,10 @@
 call plug#begin()
-Plug 'ncm2/ncm2'
+Plug 'ncm2/ncm22'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'brooth/far.vim'
 Plug 'preservim/nerdtree'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 autocmd BufNewFile,BufRead /dev/shm/gopass* setlocal noswapfile nobackup noundofile shada=""
@@ -11,6 +12,24 @@ autocmd BufNewFile,BufRead /dev/shm/gopass* setlocal noswapfile nobackup noundof
 tnoremap <Esc> <C-\><C-n>
 
 let mapleader=","
+
+" --- existing settings you already have ---
+let g:vim_ai_log_file = expand('~/.local/state/nvim/vim-ai.log')
+let g:vim_ai_debug = 1
+let g:vim_ai_roles_config_file = expand('~/.config/openrouter-roles.ini')
+" -------------------------------------------
+
+" Load OpenRouter token into Neovim env (so plugin can read it)
+let s:token = get(readfile(expand('~/.config/openrouter.token')), 0, '')
+if s:token !=# ''
+  let $OPENROUTER_API_KEY = s:token
+endif
+
+augroup VimAI
+  autocmd!
+  autocmd FileType aichat nnoremap <buffer> <CR> :AIChat<CR>
+augroup END
+
 
 syntax on
 set bs=2
@@ -120,4 +139,6 @@ func GitGrep(...)
   let &grepprg = save
 endfun
 command -nargs=? GGrep call GitGrep(<f-args>)
+
+
 

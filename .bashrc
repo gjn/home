@@ -11,9 +11,18 @@ then
   HISTFILE=~/.bash_history.${WINDOW}
 fi
 
+if [ -n "$TMUX" ]; then
+  mkdir -p ~/.bash_history_tmux
+  TMUX_SESSION=$(tmux display-message -p '#S')
+  HISTFILE="$HOME/.bash_history_tmux/history_$TMUX_SESSION"
+  unset PROMPT_COMMAND
+fi
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
+
+export OPENROUTER_API_KEY=$(cat ~/.config/openrouter.token)
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -23,7 +32,7 @@ HISTSIZE=100000
 HISTFILESIZE=200000
 
 # Assure we write to history file immediately
-export PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
+PROMPT_COMMAND="history -a; history -c; history -r; ${PROMPT_COMMAND}"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -44,7 +53,6 @@ export EDITOR=vim
 
 # You may uncomment the following lines if you want `ls' to be colorized:
 export LS_OPTIONS='--color=auto'
-export HISTCONTROL=ignoredups
 eval `dircolors`
 alias l='ls $LS_OPTIONS -lhtra'
 alias ls='ls $LS_OPTIONS'
@@ -68,6 +76,9 @@ alias tfp='terraform plan'
 alias tfa='terraform apply'
 alias stfp='summon -p /usr/bin/gopass terraform plan'
 alias stfa='summon -p /usr/bin/gopass terraform apply'
+
+alias v='nvim'
+alias nv='nvim'
 
 # Add new git log format
 alias gitlog="git log --graph --all --pretty='format:%C(auto)%h %C(cyan)%ar %C(auto)%d %C(magenta)%an %C(auto)%s'"
@@ -270,6 +281,7 @@ alias cdpackprod='cd ~/code/infra-packer-swipos'
 #alias npm="node --dns-result-order=ipv4first $(which npm)"
 alias npm="npm"
 alias node="node"
+alias c="claude"
 
 # Predictable SSH authentication socket location
 MY_SOCK="/tmp/ssh-agent-$USER-screen"
@@ -299,3 +311,27 @@ set -o vi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# export PATH="$HOME/miniconda3/bin:$PATH"  # commented out by conda initialize  # commented out by conda initialize
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/gilbert-jeiziner-u1/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/gilbert-jeiziner-u1/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/gilbert-jeiziner-u1/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/gilbert-jeiziner-u1/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+alias lg='lazygit'
