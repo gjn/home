@@ -72,10 +72,24 @@ alias mv='mv -i'
 
 alias tf='terraform'
 alias tfi='terraform init'
-alias tfp='terraform plan'
-alias tfa='terraform apply'
-alias stfp='summon -p /usr/bin/gopass terraform plan'
-alias stfa='summon -p /usr/bin/gopass terraform apply'
+
+tfa() {
+  if [ -f secrets.yml ]; then
+    summon -p /usr/bin/gopass terraform apply "$@"
+  else
+    terraform apply "$@"
+  fi
+}
+
+tfp() {
+  if [ -f secrets.yml ]; then
+    summon -p /usr/bin/gopass terraform plan "$@"
+  else
+    terraform plan "$@"
+  fi
+}
+
+
 
 alias v='nvim'
 alias nv='nvim'
